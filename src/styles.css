@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #FFFFFF;
+}
+
+.item-nav a:hover{
+  background-color: #66ffff;
+  border-radius: 10px;
+  text-decoration: underline;
+}
+
+footer{
+
+    height: 120px;
+    margin-top:15px;
+    background-color: #FFFFFF;
+    margin-top: 10px solid red ;
+
+
+
+}
+footer p {
+  text-align: center;
+  padding-top: 60px;
+}
+
+
+.editar{
+  background-color:
+  #aee1ff;
+}
+
+h3{
+  color: cornflowerblue !important;
+}

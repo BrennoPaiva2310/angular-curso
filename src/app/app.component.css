@@ -1,0 +1,14 @@
+.logo-principal{
+    height: 100px;
+}
+
+.nav-barra{
+    box-shadow: 10px 10px 5px #00ffea;
+    margin-bottom: 15px;
+    background-color: blue;
+  }
+
+  .item-nav{
+    font-size: 25px;
+    color: #ffffff !important;
+  }

@@ -1,0 +1,94 @@
+<div class="table-principal">
+  <h5>Consulta de cursos</h5>
+  <p>Listagem de Cursos cadastrados</p>
+
+  <form [formGroup]="formPesquisa" (ngSubmit)="onSubmit()">
+    <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+      <strong>{{ mensagem }}</strong>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="">Descriçao</label>
+        <input type="text" class="form-control" formControlName="descricao" />
+      </div>
+
+      <div class="col-md-3">
+        <label for="">Data de Inicio</label>
+        <input type="date" class="form-control" formControlName="dataInicio" />
+      </div>
+
+      <div class="col-md-3">
+        <label for="">Data de termino</label>
+        <input type="date" class="form-control" formControlName="dataTermino" />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-1">
+        <input
+          type="submit"
+          class="btn btn-succes bg-warning"
+          value="Pesquisar"
+        />
+      </div>
+      <div class="col-md-1">
+        <input
+          type="reset"
+          (click)="Limpar()"
+          class="btn btn-succes bg-warning"
+          value="Limpar"
+        />
+      </div>
+      <div class="col-md-1">
+        <input
+          type="reset"
+          (click)="voltar()"
+          class="btn btn-succes bg-warning"
+          value="Voltar"
+        />
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-houver table-sm">
+
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Descrição do Curso</td>
+        <td>Data de Início</td>
+        <td>Data de Término</td>
+        <td>Quantidade de alunos</td>
+        <td>Categoria</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of curso">
+        <td>{{ c.idCurso }}</td>
+        <td>{{ c.descricao }}</td>
+        <td>{{ c.dataInicio | date: "dd/MM/yyyy" }}</td>
+        <td>{{ c.dataTermino | date: "dd/MM/yyyy" }}</td>
+        <td>{{ c.qtdAlunos }}</td>
+        <td>{{ c.categoria.categoria }}</td>
+
+        <td>
+          <button
+            class="btn btn-sm btn-light editar"
+            [routerLink]="['/editar-curso', c.idCurso]"
+          >
+            Editar
+          </button>
+          &nbsp;
+          <button class="btn btn-sm btn-danger" (click)="excluir(c.idCurso)">
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">Total de registros: {{ curso.length }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
